@@ -24,7 +24,7 @@ SECRET_KEY = 'b8r^!jy#jon(3m4@$=le91da5w20)iubn#0^i00c1^6+0k)k%c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://git.heroku.com/wrl-vendasoauth2.git/']
+ALLOWED_HOSTS = ['https://wrl-vendasoauth2.herokuapp.com']
 
 # Application definition
 INSTALLED_APPS = [
