@@ -1,0 +1,1 @@
+web: gunicorn vendasoauth2.wsgi
