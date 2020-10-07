@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = 'b8r^!jy#jon(3m4@$=le91da5w20)iubn#0^i00c1^6+0k)k%c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['https://protected-headland-07492.herokuapp.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
@@ -131,9 +131,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
 
-LANGUAGE_CODE = 'pt-br'
+LANGUAGE_CODE = "pt-br"
 
-TIME_ZONE = 'America/Sao_Paulo'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -168,5 +168,3 @@ OAUTH2_PROVIDER = {
     'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
     'ACCESS_TOKEN_EXPIRE_SECONDS': 36000,
 }
-
-django_heroku.settings(locals())
