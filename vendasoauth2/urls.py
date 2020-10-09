@@ -59,7 +59,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("o/", include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('accounts/register', registrarUsuarioView.as_view(), name='register'),
-    path('accounts/login', views.LoginView.as_view(), name='login'),
+    path('accounts/login/', views.LoginView.as_view(), name='login'),
     path('accounts/logout', views.LogoutView.as_view(), name='logout'),
     path('', IndexView.as_view()),
 ]
