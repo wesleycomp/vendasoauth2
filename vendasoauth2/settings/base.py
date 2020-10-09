@@ -149,7 +149,8 @@ STATIC_URL = '/static/' #usado durante o desenvolvimento
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login'
-STATIC_ROOT = BASE_DIR / "staticfiles" #usado durante a producao
+#STATIC_ROOT = BASE_DIR / "staticfiles" #usado durante a producao
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/') #usado durante a producao
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 REST_FRAMEWORK = {
