@@ -32,11 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
-
-    # APP OAUTH2
     'oauth2_provider',
-   # 'corsheaders',
-
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -45,10 +41,8 @@ INSTALLED_APPS = [
     #APP DJANGO REST_FRAMEWORK
     'django_filters',
 	'rest_framework',
-
     #FORMULARIOS COM BOOTSTRAP
     'crispy_forms',
-
     #minhas APPPYT
     'estoque',
 ]
@@ -156,10 +150,6 @@ LOGOUT_REDIRECT_URL = '/accounts/login'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #usado durante a producao
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (

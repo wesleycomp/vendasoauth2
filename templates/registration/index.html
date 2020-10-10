@@ -1,28 +1,14 @@
-{% extends 'base.html' %}
-{% load crispy_forms_tags %}
+<html>
+    <head>caamba</head>
 
-{% block title %}Api Vendas{% endblock %}
+    <body>
+<h1>HELLO WORD</h1>
+<table>
+    <tr>
+        <td>FUNCIONANDO PAGINA DE TESTE</td>
 
-{% block content %}
-<div class="row">
-    <div class="col-md-4 offset-md-4">
-        <div class="card  auth-card">
-            <div class="card-body">
-                <h3 class="card-title text-center">BEM VINDO A API VENDAS</h3>
+    </tr>
 
-                    {% csrf_token %}
-                 {% if user.is_authenticated %}
-                <p align="center" class="nav-item">
-                        <a  class="btn btn-info" href="/o/applications/register/">Cadastrar Aplicação</a>
-                    </p>
-                 {% else %}
-                <h5 class="card-title text-center">FAÇA O LOGIN PARA TER ACESSO AS FUNCIONALIDADES</h5>
-                   <p align="center" class="nav-item">
-                        <a class="btn btn-info" href="/accounts/login">Login</a>
-                    </p>
-                 {% endif %}
-            </div>
-        </div>
-    </div>
-</div>
-{% endblock %}
+</table>
+</body>
+</html>
