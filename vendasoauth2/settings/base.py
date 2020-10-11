@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
  # para que o heroku passe as informações dos hosts ao nosso database
 
+import django_heroku
 
 from pathlib import Path
 import django_heroku
@@ -151,6 +152,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #usado durante a producao
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
+
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
@@ -167,3 +170,4 @@ OAUTH2_PROVIDER = {
     'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
     'ACCESS_TOKEN_EXPIRE_SECONDS': 36000,
 }
+ # Activate Django-Heroku. django_heroku.settings(locals())
