@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
  # para que o heroku passe as informações dos hosts ao nosso database
 
-import django_heroku
-
 from pathlib import Path
 import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -148,7 +146,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login'
 #STATIC_ROOT = BASE_DIR / "staticfiles" #usado durante a producao
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #usado durante a producao
+STATIC_ROOT = os.path.join(BASE_DIR, '/static/') #usado durante a producao
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
@@ -170,4 +168,3 @@ OAUTH2_PROVIDER = {
     'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
     'ACCESS_TOKEN_EXPIRE_SECONDS': 36000,
 }
- # Activate Django-Heroku. django_heroku.settings(locals())

@@ -1,56 +1,27 @@
-{% load static %}
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}{% endblock %}</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static '/css/styles.css' %}">
-</head>
-<body>
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/">API Vendas</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Pagina Inicial</a>
-                    </li>
-                    <li class="nav-item">
-                            <a class="nav-link" href="/accounts/register">Novo Usuário</a>
-                    </li>
-                     <li class="nav-item">
-                            <a class="nav-link" href="/o/applications/register/">Cadastrar Aplicação</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/accounts/login">Login</a>
-                    </li>
-                    {% endif %}
+{% block title %}Api Vendas{% endblock %}
 
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                            <a class="nav-link" href="/accounts/logout">Sair</a>
-                        </li>
-                    {% endif %}
-                </ul>
+{% block content %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card  auth-card">
+            <div class="card-body">
+                <h3 class="card-title text-center">BEM VINDO A API VENDAS</h3>
+                    {% csrf_token %}
+                 {% if user.is_authenticated %}
+                <p align="center" class="nav-item">
+                        <a  class="btn btn-info" href="/o/applications/register/">Cadastrar Aplicação</a>
+                    </p>
+                 {% else %}
+                <h5 class="card-title text-center">FAÇA O LOGIN PARA TER ACESSO AS FUNCIONALIDADES</h5>
+                   <p align="center" class="nav-item">
+                        <a class="btn btn-info" href="/accounts/login">Login</a>
+                    </p>
+                 {% endif %}
             </div>
-        </nav>
-        {% block content %}
-        {% endblock %}
-        <footer>
-            <p>Palmas-TO</p>
-        </footer>
+        </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
-    <script src="{% static 'js/scripts.js' %}"></script>
-</body>
-</html>
+</div>
+{% endblock %}
