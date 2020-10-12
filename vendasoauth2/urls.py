@@ -62,5 +62,5 @@ urlpatterns = [
     path('accounts/register', registrarUsuarioView.as_view(), name='register'),
     path('accounts/login/', views.LoginView.as_view(), name='login'),
     path('accounts/logout', views.LogoutView.as_view(), name='logout'),
-    path('', IndexView.as_view()),
+    path('', IndexView.as_view(), name='index'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
