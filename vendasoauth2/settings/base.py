@@ -55,7 +55,7 @@ AUTHENTICATION_BACKENDS = (
 MIDDLEWARE = [
   #  'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-  #  'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -141,15 +141,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/' #usado durante o desenvolvimento
+#STATIC_URL = '/static/' #usado durante o desenvolvimento
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login'
 #STATIC_ROOT = BASE_DIR / "staticfiles" #usado durante a producao
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #usado durante a producao
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #usado durante a producao pelo whitenoise
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# para o whitenoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATIC_HOST = 'https://wrl-vendasouath2.herokuapp.com/' if not DEBUG else ''
+STATIC_URL = STATIC_HOST + '/static/'
+
+
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
