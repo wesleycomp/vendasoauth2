@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
-import dj_database_url # para que o heroku passe as informações dos hosts ao nosso database
+
 from pathlib import Path
 import django_heroku
 
@@ -26,7 +26,7 @@ SECRET_KEY = 'b8r^!jy#jon(3m4@$=le91da5w20)iubn#0^i00c1^6+0k)k%c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
@@ -90,7 +90,6 @@ WSGI_APPLICATION = 'vendasoauth2.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-""" 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -100,10 +99,6 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     }
-}
-"""
-DATABASES = {
-    'default': dj_database_url.config()
 }
 
 
@@ -145,13 +140,12 @@ USE_TZ = True
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login'
-#STATIC_ROOT = BASE_DIR / "staticfiles" #usado durante a producao
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #usado durante a producao pelo whitenoise
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # para o whitenoise
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #usado durante a producao pelo whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 STATIC_HOST = 'https://wrl-vendasouath2.herokuapp.com/' if not DEBUG else ''
 STATIC_URL = STATIC_HOST + '/static/'
