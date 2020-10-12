@@ -26,7 +26,7 @@ SECRET_KEY = 'b8r^!jy#jon(3m4@$=le91da5w20)iubn#0^i00c1^6+0k)k%c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
@@ -148,7 +148,8 @@ LOGOUT_REDIRECT_URL = '/accounts/login'
 #STATIC_ROOT = BASE_DIR / "staticfiles" #usado durante a producao
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') #usado durante a producao
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 

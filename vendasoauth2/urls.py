@@ -22,6 +22,7 @@ import oauth2_provider.views as oauth2_views # para editar a chamada das opçoes
 from estoque.views import *
 from estoque.urls import router
 from django.contrib.auth import views
+from django.conf.urls.static import static
 from django.conf import settings #chama as configuraçõs do arquivo settings
 ####################### OAUTH 2 modificado para auhorization code ###################################
 
@@ -62,4 +63,4 @@ urlpatterns = [
     path('accounts/login/', views.LoginView.as_view(), name='login'),
     path('accounts/logout', views.LogoutView.as_view(), name='logout'),
     path('', IndexView.as_view()),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
