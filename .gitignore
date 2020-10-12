@@ -1,4 +1,5 @@
 __paycache__
 *.*~
 *.pyc
+.env
 .idea
